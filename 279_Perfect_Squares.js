@@ -1,29 +1,19 @@
 const numSquares = n => {
     let leastNum = -1;
-    const numberSet = [];
-    for (let i = 1; i <= Math.floor(Math.sqrt(n)); i++) {
-        numberSet.push(Math.pow(i, 2));
-    }
-    console.log(numberSet);
-    for (let i = numberSet.length - 1; i >= 0; i--) {
-        console.log('i: ', i);
-        let k = i;
-        let num = 0;
-        let sum = numberSet[k]; // sum = maxSquare
-        num += 1;
-        // for
-        while (sum !== n) {
-            sum += numberSet[k];
-            num += 1;
-            console.log(sum);
-            if (sum > n) {
-                sum -= numberSet[k];
-                num -= 1;
-                k--;
+    const numberSet = Array(Math.floor(Math.sqrt(n))).fill().map((_, i) => Math.pow(i + 1, 2));
+    for (let i = numberSet.length - 1; i >= 0; i--) {   // i -> index of largest element
+        for (let k = i; k >= 0; k--) {  // k -> index of second largest element
+            let num = 1;    // num -> number of element of current iteration, initialized with the largest element
+            let sum = numberSet[i];
+            let m = k;  // copy of k index, keep searching for better match
+            while (sum !== n) {      
+                if (sum + numberSet[m] > n) m--;
+                else {
+                    sum += numberSet[m];
+                    num += 1;
+                }
             }
-        }
-        if (num < leastNum || leastNum < 0) {
-            leastNum = num;
+            if (num < leastNum || leastNum < 0) leastNum = num;
         }
     }
     return leastNum;
