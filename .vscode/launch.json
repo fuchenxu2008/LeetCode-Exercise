@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/264_Ugly_Number_II.js"
+            "program": "${workspaceFolder}/Day1/494_Target_Sum.js"
         }
     ]
 }
