@@ -12,4 +12,4 @@ const findTargetSumWays = (nums, S) => {
     return ways;
 };
 
-console.log(findTargetSumWays([1, 1, 1, 1, 1], 3))
+console.log(findTargetSumWays([1, -1, 1, -1, 1, -1], 0))
