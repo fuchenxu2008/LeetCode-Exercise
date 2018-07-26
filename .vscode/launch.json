@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/Day1/494_Target_Sum.js"
+            "program": "${workspaceFolder}/Day3/121_Best_Time_to_Buy_and_Sell_Stock.js"
         }
     ]
 }
